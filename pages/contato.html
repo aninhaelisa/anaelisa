@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contato</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="shortcut icon" href="../src/icon.png" type="image/x-icon">
+</head>
+<style>
+  .contato-container {
+    background-color: #1a1a1a;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.contato-content {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.contato-texto-container {
+    flex: 1 1 400px;
+}
+
+.contato-imagem-container {
+    flex: 1 1 400px;
+    text-align: center;
+}
+
+.contato-imagem {
+    max-width: 200px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.contato-titulo {
+    font-family: "Montserrat", sans-serif;
+    color: #98324d;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.contato-call {
+    font-family: "Roboto Condensed", sans-serif;
+    color: #ffffff;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.contato-texto {
+    font-family: "Roboto Condensed", sans-serif;
+    color: #ffffff;
+    font-size: 16px;
+    margin: 8px 0;
+}
+
+.contato-email {
+    color: #ffffff;
+    text-decoration: underline;
+}
+</style>
+<body>
+  <div class="menu-hamburguer-container">
+    <div class="menu-hamburguer-botao" id="botaoHamburguer">
+        <span class="menu-hamburguer-linha"></span>
+        <span class="menu-hamburguer-linha"></span>
+        <span class="menu-hamburguer-linha"></span>
+    </div>
+
+    <nav class="menu-hamburguer-navegacao" id="menuHamburguer">
+        <a href="../index.html" class="menu-hamburguer-link">Início</a>
+        <a href="curriculo.html" class="menu-hamburguer-link">Sobre</a>
+        <a href="contato.html" class="menu-hamburguer-link">Contato</a>
+        <a href="projetos.html" class="menu-hamburguer-link">Projetos</a>
+        <a href="lofi.html" class="menu-hamburguer-link" >Meu Espaço</a>
+    </nav>
+</div>
+
+<div class="contato-container">
+  <div class="contato-content">
+      <div class="contato-texto-container">
+          <h2 class="contato-titulo">Entre em contato comigo!</h2>
+          <p class="contato-call">Quer conversar sobre projetos ou me enviar um feedback? Me envie uma mensagem abaixo!</p>
+          <p class="contato-texto">Meu email: <a href="mailto:elisaana.2019.2006@gmail.com" class="contato-email">elisaana.2019.2006@gmail.com</a></p>
+          <p class="contato-texto">A caixa de mensagem abaixo envia diretamente para meu WhatsApp.</p>
+      </div>
+      <div class="contato-imagem-container">
+          <img src="../src/cont.png" alt="Imagem de contato" class="contato-imagem">
+      </div>
+  </div>
+</div>
+
+  <section class="contact-section" style="margin: 30px auto;">
+
+    <div class="contact-form">
+      <input type="text" id="name" placeholder="Seu nome">
+      <textarea id="message" placeholder="Sua mensagem"></textarea>
+      <div id="error-msg" class="error-msg"></div>
+      <button id="sendBtn" class="btn-brilhante">Enviar</button>
+    </div>
+
+  </section>
+
+
+  <footer id="portfolio-footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <img src="../src/icon.png" alt="Ícone do portfólio">
+      </div>
+      <div class="footer-right">
+        <p>© 2025 Ana Elisa - Todos os direitos reservados</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../scripts/contato.js"></script>
+  <script src="../scripts/all.js"></script>
+  <script src="../scripts/oneko/oneko.js" data-cat="../scripts/oneko/oneko.gif"></script>
+</body>
+
+</html>

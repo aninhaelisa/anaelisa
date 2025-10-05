@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu espaço</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="shortcut icon" href="../src/icon.png" type="image/x-icon">
+</head>
+<style>
+    body,
+    html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        color: #fff;
+        font-family: 'Poppins', sans-serif;
+        overflow-x: hidden;
+    }
+
+    .tela {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        min-height: 100vh;
+        padding: 2rem 1rem;
+        box-sizing: border-box;
+    }
+
+    /* ====================== MONITOR ====================== */
+    .monitor {
+        position: relative;
+        width: 90vw;
+        max-width: 700px;
+        aspect-ratio: 16/9;
+        background: #070707;
+        border: 12px solid #070707;
+        border-radius: 10px;
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+        overflow: hidden;
+        z-index: 3;
+    }
+
+    .monitor-screen {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        transition: background-image 1s ease-in-out;
+        border-radius: 10px;
+    }
+
+    /* ====================== PLAYER ====================== */
+    .player {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    button {
+        background: #98324d7a;
+        border: none;
+        color: white;
+        font-size: 1rem;
+        padding: 0.6rem 0.8rem;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+
+    button:hover {
+        background: rgba(255, 255, 255, 0.3);
+    }
+
+    .suport1 {
+        width: 8vw;
+        max-width: 50px;
+        height: 5vh;
+        max-height: 100px;
+        background-color: #0f0f0f;
+
+    }
+
+    .suport2 {
+        width: 40vw;
+        max-width: 250px;
+        height: 2vh;
+        max-height: 20px;
+        background-color: #0f0f0f;
+        border-radius: 30px 30px 0 0;
+        margin-bottom: -24px;
+    }
+
+    .lampada-container {
+        position: fixed;
+        top: 0;
+        right: 10%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 10;
+        animation: flutuar 6s ease-in-out infinite;
+    }
+
+    .fio {
+        width: 2px;
+        height: 10vh;
+        background-color: #555;
+        transform-origin: top center;
+        animation: fioBalançando 4s ease-in-out infinite;
+    }
+
+    .lampada {
+        width: 60px;
+        height: 60px;
+        background-color: #222;
+        border-radius: 50%;
+        position: relative;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+        transition: background-color 0.3s, box-shadow 0.3s;
+        animation: balancar3D 5s ease-in-out infinite;
+    }
+
+    .lampada::before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: 20px;
+        width: 20px;
+        height: 10px;
+        background: #333;
+        border-radius: 3px 3px 0 0;
+    }
+
+    .lampada::after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 18px;
+        width: 24px;
+        height: 5px;
+        background: #222;
+        border-radius: 2px;
+    }
+
+    .luz {
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 80px;
+        background: radial-gradient(circle, rgba(255, 255, 150, 0.6), transparent 70%);
+        border-radius: 50%;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.4s ease;
+    }
+
+    .lampada.acesa {
+        background-color: #ffea85;
+        box-shadow: 0 0 25px 10px rgba(255, 238, 150, 0.4);
+    }
+
+    .lampada.acesa .luz {
+        opacity: 1;
+    }
+
+    /* ====================== ANIMAÇÕES ====================== */
+    @keyframes fioBalançando {
+
+        0%,
+        100% {
+            transform: rotate(1deg);
+        }
+
+        25% {
+            transform: rotate(-2deg);
+        }
+
+        50% {
+            transform: rotate(3deg);
+        }
+
+        75% {
+            transform: rotate(-1deg);
+        }
+    }
+
+    @keyframes balancar3D {
+
+        0%,
+        100% {
+            transform: rotate3d(1, 1, 0, 2deg);
+        }
+
+        25% {
+            transform: rotate3d(1, 0, 1, -2deg);
+        }
+
+        50% {
+            transform: rotate3d(0, 1, 1, 3deg);
+        }
+
+        75% {
+            transform: rotate3d(1, 1, 1, -3deg);
+        }
+    }
+
+    @keyframes flutuar {
+
+        0%,
+        100% {
+            transform: translateY(0px);
+        }
+
+        50% {
+            transform: translateY(3px);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .lampada {
+            width: 45px;
+            height: 45px;
+        }
+
+        .suport2 {
+            margin-bottom: -10px;
+        }
+
+        .lampada::before {
+            left: 13px;
+            width: 18px;
+        }
+
+        .lampada::after {
+            left: 12px;
+            width: 20px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .monitor {
+            width: 95vw;
+            border: 8px solid #070707;
+        }
+
+        button {
+            font-size: 0.9rem;
+            padding: 0.4rem 0.6rem;
+        }
+
+        .lampada-container {
+            right: 10%;
+            top: 0.5rem;
+        }
+    }
+
+    .texto-intro {
+        font-family: 'Courier New', monospace;
+        font-size: 1.2rem;
+        color: #e0e0e0;
+        text-align: center;
+        margin-top: 1.5rem;
+        white-space: pre-line;
+        min-height: 3.5em;
+        letter-spacing: 0.5px;
+    }
+
+    @media (max-width: 600px) {
+        .texto-intro {
+            font-size: 1rem;
+            padding: 0 1rem;
+        }
+    }
+
+    .mesa {
+        width: 100%;
+        height: 40px;
+        background-color: #83546a;
+        border-radius: 20px 20px 0 0;
+    }
+
+    .xicara-container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        margin-bottom: -17px;
+        z-index: 5;
+        margin-left: 63%;
+    }
+
+    .xicara {
+        position: relative;
+        width: 60px;
+        height: 40px;
+        background: #fff;
+        border-radius: 0 0 10px 10px;
+        border: 3px solid #ccc;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    /* alça da xícara */
+    .xicara::after {
+        content: '';
+        position: absolute;
+        right: -15px;
+        top: 3px;
+        width: 12px;
+        height: 20px;
+        border: 5px solid #ffffff;
+        border-radius: 50%;
+        background: transparent;
+    }
+
+    /* ====================== FUMAÇA ====================== */
+    .fumaca {
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        width: 10px;
+        height: 20px;
+        background: linear-gradient(to top, rgba(200, 200, 200, 0.5), transparent);
+        border-radius: 50%;
+        opacity: 0.6;
+        transform: translateX(-50%);
+        animation: subirFumaca 3s infinite ease-in-out;
+    }
+
+    .fumaca:nth-child(2) {
+        animation-delay: 0.5s;
+        width: 8px;
+        height: 25px;
+        left:10px;
+    }
+
+    .fumaca:nth-child(3) {
+        animation-delay: 1s;
+        width: 12px;
+        height: 18px;
+        left: 20px;
+    }
+
+    @keyframes subirFumaca {
+        0% {
+            transform: translateX(-50%) translateY(0) rotate(0deg);
+            opacity: 0.6;
+        }
+
+        50% {
+            transform: translateX(-50%) translateY(-20px) rotate(5deg);
+            opacity: 0.3;
+        }
+
+        100% {
+            transform: translateX(-50%) translateY(-40px) rotate(-5deg);
+            opacity: 0;
+        }
+    }
+
+    /* ====================== RESPONSIVIDADE ====================== */
+    @media (max-width: 768px) {
+        .xicara {
+            width: 45px;
+            height: 30px;
+        }
+
+        .xicara::after {
+            right: -14px;
+            width: 9px;
+            height: 9px;
+            top: 0px;
+        }
+
+        .fumaca {
+            width: 7px;
+            height: 15px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .xicara {
+            width: 35px;
+            height: 25px;
+        }
+
+        .xicara::after {
+            right: -14px;
+            width: 7px;
+            height: 7px;
+        }
+
+        .fumaca {
+            width: 5px;
+            height: 12px;
+        }
+
+    }
+
+
+    .mon-tela {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    .gato-container {
+        position: relative;
+        bottom: 135px;
+        left: -21%;
+        transform: translateX(-50%);
+        z-index: 6;
+    }
+
+    .gato {
+        width: 300px;
+        height: auto;
+        user-select: none;
+        pointer-events: none;
+    }
+
+    @media (max-width: 768px) {
+        .gato {
+            width: 200px;
+        }
+
+        .gato-container {
+            position: relative;
+            bottom: 94px;
+            left: -1%;
+            transform: translateX(-50%);
+            z-index: 6;
+        }
+    }
+</style>
+<div class="lampada-container">
+    <div class="fio"></div>
+    <div class="lampada" id="lampada">
+        <div class="luz"></div>
+    </div>
+</div>
+
+
+<body>
+    <div class="menu-hamburguer-container">
+        <div class="menu-hamburguer-botao" id="botaoHamburguer">
+            <span class="menu-hamburguer-linha"></span>
+            <span class="menu-hamburguer-linha"></span>
+            <span class="menu-hamburguer-linha"></span>
+        </div>
+
+        <nav class="menu-hamburguer-navegacao" id="menuHamburguer">
+            <a href="../index.html" class="menu-hamburguer-link">Início</a>
+            <a href="curriculo.html" class="menu-hamburguer-link">Sobre</a>
+            <a href="contato.html" class="menu-hamburguer-link">Contato</a>
+            <a href="projetos.html" class="menu-hamburguer-link">Projetos</a>
+            <a href="lofi.html" class="menu-hamburguer-link">Meu Espaço</a>
+        </nav>
+    </div>
+
+
+    <div class="mon-tela">
+        <div class="texto-intro" id="typewriter"></div>
+        <div class="monitor">
+            <div class="monitor-screen" id="monitor"></div>
+
+            <div class="player">
+                <button id="prev">◁</button>
+                <button id="playpause">▶︎</button>
+                <button id="next">▷ </button>
+            </div>
+        </div>
+
+        <div class="suport1"></div>
+        <div class="suport2"></div>
+
+        <!-- Xícara agora vem depois do monitor e suportes, mas antes da mesa -->
+        <div class="xicara-container">
+            <div class="xicara">
+                <div class="fumaca"></div>
+                <div class="fumaca"></div>
+                <div class="fumaca"></div>
+            </div>
+        </div>
+
+        <div class="mesa"></div>
+        <div class="gato-container">
+            <img src="../src/cat.webp" alt="Gato" class="gato">
+        </div>
+    </div>
+    <footer id="portfolio-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <img src="../src/icon.png" alt="Ícone do portfólio">
+            </div>
+            <div class="footer-right">
+                <p>© 2025 Ana Elisa - Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const gifs = [
+            "https://res.cloudinary.com/dpaehwnlg/image/upload/v1759677282/10_gbxviw.gif",
+            "https://res.cloudinary.com/dpaehwnlg/image/upload/v1759677280/3_hsyqus.gif",
+            "https://res.cloudinary.com/dpaehwnlg/image/upload/v1759677280/8_cbu36d.gif",
+            "https://res.cloudinary.com/dpaehwnlg/image/upload/v1759677280/1_pothm2.gif",
+            "https://res.cloudinary.com/dpaehwnlg/image/upload/v1759677280/7_bbdaam.gif",
+            "https://res.cloudinary.com/dpaehwnlg/image/upload/v1759677279/6_z3q2fi.gif",
+            "https://res.cloudinary.com/dpaehwnlg/image/upload/v1759677279/9_uli6gh.gif",
+            "https://res.cloudinary.com/dpaehwnlg/image/upload/v1759677279/2_jxmfb4.gif",
+            "https://res.cloudinary.com/dpaehwnlg/image/upload/v1759677279/5_mas4f7.gif",
+            "https://res.cloudinary.com/dpaehwnlg/image/upload/v1759677279/4_gxo7m0.gif"
+
+        ];
+
+        const musics = [
+            "https://res.cloudinary.com/dpaehwnlg/video/upload/v1759677285/SpotiDownloader.com_-_RetroFunk_-_Lvnt_ealnd3.mp3",
+            "https://res.cloudinary.com/dpaehwnlg/video/upload/v1759677285/SpotiDownloader.com_-_The_Void_-_Wild_Sonics_dtzoml.mp3",
+            "https://res.cloudinary.com/dpaehwnlg/video/upload/v1759677284/SpotiDownloader.com_-_Umeda_-_seekx_lcmzyq.mp3",
+            "https://res.cloudinary.com/dpaehwnlg/video/upload/v1759677285/SpotiDownloader.com_-_Zealous_-_Hewie_Lou_nbthxa.mp3",
+            "https://res.cloudinary.com/dpaehwnlg/video/upload/v1759677284/SpotiDownloader.com_-_Don_t_Think_-_Frances_The_Mute_xucinr.mp3",
+            "https://res.cloudinary.com/dpaehwnlg/video/upload/v1759677283/SpotiDownloader.com_-_Silent_Solitary_-_Shin-Ski_wleaks.mp3",
+            "https://res.cloudinary.com/dpaehwnlg/video/upload/v1759677283/SpotiDownloader.com_-_Mindtrick_-_Shin-Ski_nnrtzr.mp3",
+            "https://res.cloudinary.com/dpaehwnlg/video/upload/v1759677283/SpotiDownloader.com_-_Radiant_-_lightheart_ofzsy4.mp3",
+            "https://res.cloudinary.com/dpaehwnlg/video/upload/v1759677283/SpotiDownloader.com_-_Koza_-_Oddability_zxqm4x.mp3",
+            "https://res.cloudinary.com/dpaehwnlg/video/upload/v1759677281/SpotiDownloader.com_-_Get_Together_-_Phlocalyst_kr8to2.mp3"
+
+        ];
+
+        let index = 0;
+        let playing = false;
+        const monitor = document.getElementById("monitor");
+        const playpause = document.getElementById("playpause");
+        const prev = document.getElementById("prev");
+        const next = document.getElementById("next");
+
+        let audio = new Audio(musics[index]);
+        monitor.style.backgroundImage = `url(${gifs[index]})`;
+
+        function playMusic() {
+            audio.play();
+            playing = true;
+            playpause.textContent = "||";
+        }
+
+        function pauseMusic() {
+            audio.pause();
+            playing = false;
+            playpause.textContent = "▶︎";
+        }
+
+        playpause.addEventListener("click", () => {
+            playing ? pauseMusic() : playMusic();
+        });
+
+        next.addEventListener("click", () => {
+            audio.pause();
+            index = (index + 1) % musics.length;
+            audio = new Audio(musics[index]);
+            monitor.style.backgroundImage = `url(${gifs[index]})`;
+            if (playing) playMusic();
+        });
+
+        prev.addEventListener("click", () => {
+            audio.pause();
+            index = (index - 1 + musics.length) % musics.length;
+            audio = new Audio(musics[index]);
+            monitor.style.backgroundImage = `url(${gifs[index]})`;
+            if (playing) playMusic();
+        });
+
+        //---------------------------------------------
+        const lampada = document.getElementById('lampada');
+        lampada.addEventListener('click', () => {
+            lampada.classList.toggle('acesa');
+        });
+
+        const frases = [
+            "Sente-se um pouco. O monitor está pronto — aperte o play e relaxe.",
+            "Clique na lampada para acender a luz :)",
+            "Bem-vindo ao meu ambiente.",
+            "Meu espaço: um cantinho de som, código e calma."
+        ];
+
+        const typewriter = document.getElementById("typewriter");
+        let fraseIndex = 0;
+        let charIndex = 0;
+
+        function digitar() {
+            if (charIndex < frases[fraseIndex].length) {
+                typewriter.textContent += frases[fraseIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(digitar, 50); // velocidade da digitação (menor = mais rápido)
+            } else {
+                setTimeout(apagar, 2000); // pausa antes de apagar
+            }
+        }
+
+        function apagar() {
+            if (charIndex > 0) {
+                typewriter.textContent = frases[fraseIndex].substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(apagar, 25);
+            } else {
+                fraseIndex = (fraseIndex + 1) % frases.length;
+                setTimeout(digitar, 600);
+            }
+        }
+
+        digitar();
+    </script>
+
+    <script src="../scripts/all.js"></script>
+    <script src="../scripts/oneko/oneko.js" data-cat="../scripts/oneko/oneko.gif"></script>
+</body>
+
+</html>

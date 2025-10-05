@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projetos</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="shortcut icon" href="../src/icon.png" type="image/x-icon">
+</head>
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projetos de Elisa</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #0e0e0e;
+      margin: 0;
+      color: #ffffff;
+    }
+
+    #projects-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    #projects-title {
+      font-size: 2em;
+      color: #98324d;
+      font-family: "Montserrat", sans-serif;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+
+    #projects-list {
+      list-style: none;
+      padding: 0;
+      width: 100%;
+      max-width: 600px;
+    }
+
+    .project-item {
+      background: #1a1a1a;
+      margin: 10px 0;
+      border-radius: 15px 5px 15px 5px;
+      padding: 12px 20px;
+      transition: 0.3s;
+    }
+
+    .project-item:hover {
+      background: #292929;
+      transform: translateX(5px);
+    }
+
+    .project-link {
+      color: #ffffff;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 1rem;
+      font-family: "Roboto Condensed", sans-serif;
+    }
+
+    .project-star {
+      color: #f540ff;
+      font-size: 1.2em;
+      margin-right: 10px;
+    }
+
+    @media (max-width: 600px) {
+      #projects-container {
+        padding: 20px;
+      }
+
+      .project-item {
+        font-size: 0.95rem;
+      }
+    }
+
+    .caixa-projetos {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      background-color: transparent;
+      border-radius: 12px;
+      padding: 20px 30px;
+      font-family: "Roboto Condensed", sans-serif;
+      color: #fff;
+      line-height: 1.6;
+      flex-wrap: wrap;
+    }
+
+    .img-projetos {
+      width: 150px;
+      height: auto;
+    }
+
+    .texto-projetos {
+      max-width: 600px;
+    }
+
+    .texto-projetos h2 {
+      font-family: "Montserrat", sans-serif;
+      font-size: 1.8em;
+      color: #98324d;
+      margin-bottom: 12px;
+    }
+
+    .texto-projetos p {
+      margin-bottom: 12px;
+      text-align: justify;
+    }
+
+    .texto-projetos a {
+      color: #98324d;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .texto-projetos a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .caixa-projetos {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .img-projetos {
+        width: 70%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="menu-hamburguer-container">
+    <div class="menu-hamburguer-botao" id="botaoHamburguer">
+        <span class="menu-hamburguer-linha"></span>
+        <span class="menu-hamburguer-linha"></span>
+        <span class="menu-hamburguer-linha"></span>
+    </div>
+
+    <nav class="menu-hamburguer-navegacao" id="menuHamburguer">
+        <a href="../index.html" class="menu-hamburguer-link">Início</a>
+        <a href="curriculo.html" class="menu-hamburguer-link">Sobre</a>
+        <a href="contato.html" class="menu-hamburguer-link">Contato</a>
+        <a href="projetos.html" class="menu-hamburguer-link">Projetos</a>
+        <a href="lofi.html" class="menu-hamburguer-link" >Meu Espaço</a>
+    </nav>
+</div>
+
+  <!-- Caixa de apresentação dos projetos -->
+  <div class="caixa-projetos">
+    <img src="../src/img1.png" alt="Ilustração de projetos" class="img-projetos">
+
+    <div class="texto-projetos">
+      <h2>☆ Meus Projetos no GitHub</h2>
+      <p>
+        Estes são a maioria dos meus projetos disponíveis no
+        <a href="https://github.com/aninhaelisa?tab=repositories" target="_blank">meu GitHub</a>.
+        Os projetos com uma <strong>☆ estrela</strong> na frente são meus preferidos.
+        Muitos deles são simples — e alguns até meio tortos — mas todos marcam a minha
+        <strong>evolução constante</strong> desde 2022, quando publiquei meu primeiro código.
+      </p>
+      <p>
+        Desde então, tenho estudado e pesquisado novas formas de melhorar.
+        Ainda não atingi a perfeição, mas sigo aprendendo e crescendo um pouco mais a cada projeto.
+      </p>
+      <p>
+        Se quiser contribuir, ficarei feliz em receber o seu feedback na
+        <a href="contato.html">página de contato</a>! 
+        Toda sugestão é bem-vinda — afinal, cada olhar ajuda a lapidar o que está sendo construído.
+      </p>
+    </div>
+  </div>
+
+  <section id="projetos" style="background-color: #98324d00; padding: 20px;">
+    <button class="carousel-btn left">&lt;</button>
+    <div class="text-ver-mais">
+      <h5 style="color: #98324b;">Melhores Projetos</h5>
+    </div>
+    <div class="carousel-container">
+
+      <!-- Projeto 1 -->
+      <div class="project" onclick="window.open('https://aninhaelisa.github.io/LIBRAS/', '_blank')">
+        <video autoplay muted loop playsinline>
+          <source src="https://res.cloudinary.com/dpaehwnlg/video/upload/v1759431455/libras_trwju6.mp4"
+            type="video/mp4">
+        </video>
+        <div class="overlay">
+          <h4>Jogo de Libras - Auxilia no desenvolvimento da Libras</h3>
+        </div>
+      </div>
+
+      <!-- Projeto 2 -->
+      <div class="project" onclick="window.open('https://aninhaelisa.github.io/PBLM/', '_blank')">
+        <video autoplay muted loop playsinline>
+          <source src="https://res.cloudinary.com/dpaehwnlg/video/upload/v1759431509/pblm_m1yju1.mp4" type="video/mp4">
+        </video>
+        <div class="overlay">
+          <h4>Empresa de sustentabilidade - Criatividade e design interativo</h3>
+        </div>
+      </div>
+
+      <div class="project" onclick="window.open('https://evoeart.shop/', '_blank')">
+        <video autoplay muted loop playsinline>
+          <source src="https://res.cloudinary.com/dpaehwnlg/video/upload/v1759432339/evoe_baljk4.mp4" type="video/mp4">
+        </video>
+        <div class="overlay">
+          <h4>Gráfica têxtil iniciando no mercado - Desing simples e responsivo</h3>
+        </div>
+      </div>
+
+      <div class="project" onclick="window.open('https://aninhaelisa.github.io/music-play/', '_blank')">
+        <video autoplay muted loop playsinline>
+          <source src="https://res.cloudinary.com/dpaehwnlg/video/upload/v1759432670/music_poqqin.mp4" type="video/mp4">
+        </video>
+        <div class="overlay">
+          <h4>Player de música - Design responsivo e um dos meus primeiros projetos</h3>
+        </div>
+      </div>
+
+      <div class="project" onclick="window.open('https://aninhaelisa.github.io/PrimeCon/', '_blank')">
+        <video autoplay muted loop playsinline>
+          <source src="https://res.cloudinary.com/dpaehwnlg/video/upload/v1759432982/constr_gzhdvg.mp4"
+            type="video/mp4">
+        </video>
+        <div class="overlay">
+          <h4>Construtora - Design simples e amador, um dos primeiros projetos</h3>
+        </div>
+      </div>
+
+      <div class="project" onclick="window.open('https://aninhaelisa.github.io/MARSEY-CAT-GAME/', '_blank')">
+        <video autoplay muted loop playsinline>
+          <source src="https://res.cloudinary.com/dpaehwnlg/video/upload/v1759433360/jogo1_omyk2z.mp4" type="video/mp4">
+        </video>
+        <div class="overlay">
+          <h4>Jogo de vestir - Simples e divertido :D</h3>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-btn right">&gt;</button>
+  </section>
+
+  <div id="projects-container">
+    <h1 id="projects-title">Meus Projetos</h1>
+
+    <ul id="projects-list">
+      <li class="project-item"><a class="project-link" href="https://github.com/aninhaelisa/VirtualChicken-"
+          target="_blank">VirtualChicken - pet virtual</a></li>
+      <li class="project-item"><a class="project-link" href="https://aninhaelisa.github.io/room-3d/"
+          target="_blank">room-3d - quarto 3D</a></li>
+      <li class="project-item"><a class="project-link" href="https://aninhaelisa.github.io/portifolio/#home"
+          target="_blank"><span class="project-star">☆</span>Portfólio teste 2</a></li>
+      <li class="project-item"><a class="project-link" href="https://aninhaelisa.github.io/LancheArt/"
+          target="_blank">LancheArt - site lanches</a></li>
+      <li class="project-item"><a class="project-link" href="https://aninhaelisa.github.io/Tapejara/"
+          target="_blank">Tapejara - re-design site</a></li>
+      <li class="project-item"><a class="project-link" href="https://aninhaelisa.github.io/PrimeCon/"
+          target="_blank">PrimeCon - construtora</a></li>
+      <li class="project-item"><a class="project-link" href="https://aninhaelisa.github.io/matematica/"
+          target="_blank">Matemática - jogo</a></li>
+      <li class="project-item"><a class="project-link" href="https://aninhaelisa.github.io/jogo-trissilabas/"
+          target="_blank">Jogo Trissílabas</a></li>
+      <li class="project-item"><a class="project-link" href="https://aninhaelisa.github.io/art-pagina/"
+          target="_blank">Arte - página sobre arte</a></li>
+      <li class="project-item"><a class="project-link" href="https://aninhaelisa.github.io/art-test/"
+          target="_blank">Art Test - CSS</a></li>
+      <li class="project-item"><a class="project-link" href="https://aninhaelisa.github.io/confeitaria/"
+          target="_blank">Confeitaria</a></li>
+      <li class="project-item"><a class="project-link" href="https://aninhaelisa.github.io/design-placta/"
+          target="_blank">Design Placta - joalheria</a></li>
+      <li class="project-item"><a class="project-link" href="https://aninhaelisa.github.io/-re-design-Tapejara/"
+          target="_blank">Re-design Tapejara</a></li>
+      <li class="project-item"><a class="project-link" href="https://aninhaelisa.github.io/Joji/" target="_blank">Joji -
+          página de fã</a></li>
+      <li class="project-item"><a class="project-link" href="https://aninhaelisa.github.io/poemasemsentido/"
+          target="_blank">Poemas em Sentido</a></li>
+      <li class="project-item"><a class="project-link" href="https://aninhaelisa.github.io/front/" target="_blank">Front
+          - teste design</a></li>
+      <li class="project-item"><a class="project-link" href="https://github.com/aninhaelisa/flutter"
+          target="_blank">Flutter - projeto</a></li>
+      <li class="project-item"><a class="project-link" href="https://aninhaelisa.github.io/eBooks/"
+          target="_blank"><span class="project-star">☆</span>eBooks - site</a></li>
+      <li class="project-item"><a class="project-link" href="https://aninhaelisa.github.io/Kamai/" target="_blank">Kamai
+          - página de fã</a></li>
+      <li class="project-item"><a class="project-link" href="https://aninhaelisa.github.io/design/"
+          target="_blank"><span class="project-star">☆</span>Design - site de roupas</a></li>
+      <li class="project-item"><a class="project-link" href="https://aninhaelisa.github.io/Efeito-digitacao/"
+          target="_blank"><span class="project-star">☆</span>Efeito Digitação</a></li>
+      <li class="project-item"><a class="project-link" href="https://aninhaelisa.github.io/Tretis-/"
+          target="_blank"><span class="project-star">☆</span>Tretis - jogo</a></li>
+      <li class="project-item"><a class="project-link" href="https://aninhaelisa.github.io/pascoa/"
+          target="_blank"><span class="project-star">☆</span>Páscoa - site</a></li>
+      <li class="project-item"><a class="project-link" href="https://aninhaelisa.github.io/Quiz/" target="_blank"><span
+            class="project-star">☆</span>Quiz da Winx Club</a></li>
+      <li class="project-item"><a class="project-link" href="https://aninhaelisa.github.io/JogoDaVelha/"
+          target="_blank"><span class="project-star">☆</span>Jogo da Velha</a></li>
+      <li class="project-item"><a class="project-link" href="https://aninhaelisa.github.io/cube/" target="_blank">Cubo
+          3D - teste</a></li>
+      <li class="project-item"><a class="project-link" href="https://aninhaelisa.github.io/game/" target="_blank">Game -
+          teste Mario</a></li>
+      <li class="project-item"><a class="project-link" href="https://github.com/aninhaelisa/editor"
+          target="_blank"><span class="project-star">☆</span>Editor de Imagens</a></li>
+      <li class="project-item"><a class="project-link" href="https://aninhaelisa.github.io/rolagem-horizontal/"
+          target="_blank">Rolagem Horizontal</a></li>
+      <li class="project-item"><a class="project-link" href="https://aninhaelisa.github.io/scroll-Horizontal-CSS/"
+          target="_blank">Rolagem Horizontal 2</a></li>
+      <li class="project-item"><a class="project-link" href="https://aninhaelisa.github.io/arte/"
+          target="_blank">Arte</a></li>
+      <li class="project-item"><a class="project-link" href="https://aninhaelisa.github.io/Educa-o-infantil/"
+          target="_blank"><span class="project-star">☆</span>Educação Infantil - jogos</a></li>
+      <li class="project-item"><a class="project-link" href="https://aninhaelisa.github.io/Calculadora/"
+          target="_blank"><span class="project-star">☆</span>Calculadora</a></li>
+      <li class="project-item"><a class="project-link" href="https://aninhaelisa.github.io/Music-Play-2.0/"
+          target="_blank">Music Play 2.0</a></li>
+      <li class="project-item"><a class="project-link" href="https://aninhaelisa.github.io/anivers-rio/"
+          target="_blank">Aniversário - bolo CSS</a></li>
+      <li class="project-item"><a class="project-link" href="https://aninhaelisa.github.io/Pink-Game/"
+          target="_blank">Pink Game - memória</a></li>
+      <li class="project-item"><a class="project-link" href="https://aninhaelisa.github.io/MusicPlay/"
+          target="_blank">Music Play - primeiro</a></li>
+      <li class="project-item"><a class="project-link" href="https://aninhaelisa.github.io/2023/" target="_blank"><span
+            class="project-star">☆</span>Ano Novo 2023</a></li>
+      <li class="project-item"><a class="project-link" href="https://aninhaelisa.github.io/Feliz-Natal/"
+          target="_blank"><span class="project-star">☆</span>Feliz Natal - CSS</a></li>
+      <li class="project-item"><a class="project-link" href="https://aninhaelisa.github.io/-Aparecida-Nutricionista/"
+          target="_blank">Aparecida Nutricionista - site</a></li>
+      <li class="project-item"><a class="project-link" href="https://aninhaelisa.github.io/Fruta-Fruto/"
+          target="_blank">Fruta Fruto - estudo</a></li>
+      <li class="project-item"><a class="project-link" href="https://aninhaelisa.github.io/3DTeste/"
+          target="_blank">Teste 3D 2</a></li>
+      <li class="project-item"><a class="project-link" href="https://aninhaelisa.github.io/Ajuda-Estudantil/"
+          target="_blank">Ajuda Estudantil - tema escuro</a></li>
+      <li class="project-item"><a class="project-link" href="https://aninhaelisa.github.io/primeiro-repositorio/"
+          target="_blank"><span class="project-star">☆</span>Primeiro Repositório</a></li>
+    </ul>
+  </div>
+  <footer id="portfolio-footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <img src="../src/icon.png" alt="Ícone do portfólio">
+      </div>
+      <div class="footer-right">
+        <p>© 2025 Ana Elisa - Todos os direitos reservados</p>
+      </div>
+    </div>
+  </footer>
+  <script src="../scripts/carosel.js"></script>
+  <script src="../scripts/all.js"></script>
+  <script src="../scripts/oneko/oneko.js" data-cat="../scripts/oneko/oneko.gif"></script>
+</body>
+
+</html>
